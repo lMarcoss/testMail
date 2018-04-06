@@ -1,4 +1,4 @@
-package com.meltsan.mail.SendMail;
+package com.mail.SendMail;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -6,11 +6,11 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public class SendMail {
+    public static String MESSAGE_SUCCESS = "Mail sent successfully....";
     public static String sendMailGeneric(final String _username, final String _password, String mailFrom, String mailTo, String subject,
                                        String auth, String enableTls, String host, String port) {
         String messageSuccess;
         Session session;
-        Properties props = new Properties();
 
         System.out.println("******* Send Mail... *******");
         try {
@@ -18,6 +18,8 @@ public class SendMail {
             // props.put("mail.smtp.starttls.enable", "false");
             // props.put("mail.smtp.host", "22.232.210.33");
             // props.put("mail.smtp.port", "25");
+            Properties props;
+            props = new Properties();
             props.put("mail.smtp.auth", auth);
             props.put("mail.smtp.starttls.enable", enableTls);
             props.put("mail.smtp.host", host);
@@ -36,7 +38,7 @@ public class SendMail {
             message.setHeader("Content-Transfer-Encoding", "quoted-printable");
             Transport.send(message);
             System.out.println("******* Mail sent ....*******");
-            messageSuccess = "Mail sent successfully....";
+            messageSuccess = MESSAGE_SUCCESS;
         } catch (Exception e) {
             e.printStackTrace();
             messageSuccess = e.getMessage();
