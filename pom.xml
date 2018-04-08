@@ -39,9 +39,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<!-- Add Log4j2 Dependency -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j</artifactId>
+			<version>1.2.5.RELEASE</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
+		<finalName>mail</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
